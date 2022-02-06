@@ -2,7 +2,7 @@ Feature: Candidate Test
 
   Background:
     Given the user should be on the home page
-
+@scen1 @all
   Scenario Outline: User add a product to the cart and login
     When the user navigates to "<Main Category>" page
     And the user can select category as a "<Sub Category>"
@@ -18,7 +18,7 @@ Feature: Candidate Test
       | Main Category | Sub Category | Product Name      | Size | Color             |
       | SCHUHE        | SNEAKERS     | ALEXANDER MCQUEEN | 38   | White/Powder Blue |
 
-
+@scen2 @all
   Scenario Outline: User modify user information
     When the user navigates login page
     And the user should be able to login with valid credentials
@@ -29,7 +29,7 @@ Feature: Candidate Test
       | First Name | Last Name |
       | John       | Smith     |
 
-  @wip
+@scen3 @all
   Scenario Outline: User apply voucher
     When the user navigates to "<Main Category>" page
     And the user can select one product as "<Product Brand>"
