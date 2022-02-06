@@ -1,4 +1,3 @@
-
 Feature: Candidate Test
 
   Background:
@@ -19,33 +18,34 @@ Feature: Candidate Test
       | Main Category | Sub Category | Product Name      | Size | Color             |
       | SCHUHE        | SNEAKERS     | ALEXANDER MCQUEEN | 38   | White/Powder Blue |
 
-  @wip
+
   Scenario Outline: User modify user information
     When the user navigates login page
     And the user should be able to login with valid credentials
     And the user modify name "<First Name>" and lastname "<Last Name>"
     Then Changes should be correctly saved
 
-  Examples:
-    | First Name | Last Name |
-    | John       | Smith     |
+    Examples:
+      | First Name | Last Name |
+      | John       | Smith     |
+
+  @wip
+  Scenario Outline: User apply voucher
+    When the user navigates to "<Main Category>" page
+    And the user can select one product as "<Product Brand>"
+    And the user verify product and add to the cart
+    And the user navigates login page
+    And the user should be able to login with valid credentials
+    And the user navigates cart page
+    And the selected_tasche on cart page
+    And the user can apply "<Voucher Code>"
+    Then voucher should be properly applied
+
+    Examples:
+      | Main Category | Product Brand | Voucher Code |
+      | TASCHEN       | SAINT LAURENT | qachallenge  |
 
 
-#  Scenario : User apply voucher
-#    When the user navigates to "SCHUHE" page
-
-#  Scenario : User apply voucher
-#
-#    When the user navigates to "SCHUHE" page
-#    And the user can select category as a "SNEAKERS"
-#    And the user can select one product in current category as "ALEXANDER MCQUEEN"
-#    And the user can select product specifications as size "38" and color "White/Powder Blue"
-#    And the user add can a product to the cart
-#    And the user navigates login page
-#    And the user should be able to login with valid credentials
-#    And the user navigates cart page
-#    And the user apply the voucher "qachallange"
-#    Then Voucher should be properly applied
 
 
 

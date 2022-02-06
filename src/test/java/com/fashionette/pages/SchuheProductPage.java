@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SchuheProductPage extends SchuhePage{
+public class SchuheProductPage extends SchuheCategoryPage{
 
     @FindBy(css = "[itemprop= 'brand']")
     public WebElement productPageSchuheName;

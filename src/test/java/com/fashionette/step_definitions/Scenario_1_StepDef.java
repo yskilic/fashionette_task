@@ -8,10 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Scenario_1_StepDef {
 
@@ -29,7 +26,7 @@ public class Scenario_1_StepDef {
     public void the_user_navigates_pages(String pageName) {
         HomePage homePage = new HomePage();
         homePage.selectedMainCategory(pageName);
-        String expectedUrl = "https://www.fashionette.de/schuhe";
+        String expectedUrl = "https://www.fashionette.de/" + pageName.toLowerCase();
 
         Assert.assertEquals("Verify Url", expectedUrl,Driver.get().getCurrentUrl());
 
@@ -40,7 +37,7 @@ public class Scenario_1_StepDef {
     public void the_user_can_select_category_as_a(String selectedCategory) {
         SchuhePage schuhePage = new SchuhePage();
         schuhePage.selectSchuheCategory(selectedCategory);
-        String expectedUrl = "https://www.fashionette.de/sneakers";
+        String expectedUrl = "https://www.fashionette.de/" + selectedCategory.toLowerCase();
 
         Assert.assertEquals("Verify Url", expectedUrl, Driver.get().getCurrentUrl());
 
@@ -121,7 +118,7 @@ public class Scenario_1_StepDef {
     public void the_added_product_should_be_in_list() {
         SchuheProductPage schuheProductPage = new SchuheProductPage();
         CartPage cartPage = new CartPage();
-        cartPage.infoInCartEntry();
+        cartPage.infoSchuheInCartEntry();
 
         String expectedName = schuheProductPage.getProductPageInfo().get("Schuhe Name");
         String actualName = cartPage.getProductInCart().get("Name");
@@ -141,7 +138,7 @@ public class Scenario_1_StepDef {
 
         String expectedPrice = schuheProductPage.getProductPageInfo().get("Schuhe Price").toString();
         String actualPrice = cartPage.getProductInCart().get("Price").toString();
-        Assert.assertTrue("Verify Price", expectedPrice.equals(actualPrice));
+        Assert.assertEquals("Verify Price", expectedPrice, actualPrice);
 
 
     }
