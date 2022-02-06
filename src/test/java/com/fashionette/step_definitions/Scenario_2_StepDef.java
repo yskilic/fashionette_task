@@ -31,8 +31,6 @@ public class Scenario_2_StepDef {
         String actualLastName = arrInfo[2].toString();
         Assert.assertEquals("Verify Last Name", expectedLastName,actualLastName);
 
-        String firstMsg = accountPage.firstMessage();
-        Assert.assertTrue("Verify Salutation Message", firstMsg.contains("John"));
 
     }
 }
