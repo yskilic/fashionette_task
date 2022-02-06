@@ -40,12 +40,12 @@ public class TaschenPage extends HomePage {
                 selectedTaschenInfo.put("Tasche Type", tascheTypeOnList.get(i).getText());
                 selectedTaschenInfo.put("Tasche Price", taschePriceOnList.get(i).getText());
 
-                System.out.println("TASCHEN PAGE :");
-                System.out.println(tascheBrandsOnList.get(i).getText());
-                System.out.println(tascheNameOnList.get(i).getText());
-                System.out.println(tascheTypeOnList.get(i).getText());
-                System.out.println(taschePriceOnList.get(i).getText());
-                System.out.println("-----------------------");
+//                System.out.println("TASCHEN PAGE :");
+//                System.out.println(tascheBrandsOnList.get(i).getText());
+//                System.out.println(tascheNameOnList.get(i).getText());
+//                System.out.println(tascheTypeOnList.get(i).getText());
+//                System.out.println(taschePriceOnList.get(i).getText());
+//                System.out.println("-----------------------");
                 tascheBrandsOnList.get(i).click();
             }
         }

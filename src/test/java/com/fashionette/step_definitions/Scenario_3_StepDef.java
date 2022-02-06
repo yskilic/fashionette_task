@@ -7,6 +7,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Scenario_3_StepDef {
     @When("the user can select one product as {string}")
     public void the_user_can_select_one_product_as(String selectTascheBrand) {
@@ -24,7 +27,7 @@ public class Scenario_3_StepDef {
         Assert.assertEquals("Verify Brand", TaschenPage.selectedTaschenInfo.get("Tasche Brand"),TaschenProductPage.productPageTascheInfo.get("Tasche Brand"));
         Assert.assertTrue("Verify Name", TaschenProductPage.productPageTascheInfo.get("Tasche Name").contains(TaschenPage.selectedTaschenInfo.get("Tasche Name")));
         Assert.assertEquals("Verify Brand", TaschenPage.selectedTaschenInfo.get("Tasche Type"),TaschenProductPage.productPageTascheInfo.get("Tasche Type"));
-//        Assert.assertEquals("Verify Price", TaschenPage.selectedTaschenInfo.get("Tasche Price"),TaschenProductPage.productPageTascheInfo.get("Tasche Price"));
+        Assert.assertEquals("Verify Price", TaschenPage.selectedTaschenInfo.get("Tasche Price"),TaschenProductPage.productPageTascheInfo.get("Tasche Price"));
 
         taschenProductPage.addCartBtn.click();
 
@@ -33,23 +36,23 @@ public class Scenario_3_StepDef {
     @When("the selected_tasche on cart page")
     public void the_selected_tasche_on_cart_page() {
         CartPage cartPage = new CartPage();
-        cartPage.tascheInfoEntryInCart();
 
-//        String expectedBrand = TaschenProductPage.productPageTascheInfo.get("Tasche Brand");
-//        String actualBrand = CartPage.productInCart.get("Tashe Brand");
-//        Assert.assertEquals("Verify Names", expectedBrand,actualBrand);
-//
-//        String expectedName = TaschenProductPage.productPageTascheInfo.get("Tasche Name");
-//        String actualName = CartPage.productInCart.get("Tasche Name");
-//        Assert.assertEquals("Verify Type", expectedName, actualName);
-//
-//        String expectedType = TaschenProductPage.productPageTascheInfo.get("Tasche Type");
-//        String actualType = CartPage.productInCart.get("Tasche Type");
-//        Assert.assertEquals("Verify Color", expectedType,actualType);
-//
-//        String expectedPrice = TaschenPage.selectedTaschenInfo.get("Tasche Price");
-//        String actualPrice = CartPage.productInCart.get("Tasche Price");
-//        Assert.assertEquals("Verify Price", expectedPrice,actualPrice);
+
+        String expectedBrand = TaschenProductPage.productPageTascheInfo.get("Tasche Brand");
+        String actualBrand = cartPage.tascheBrandInCart.getText();
+        Assert.assertEquals("Verify Brand", expectedBrand,actualBrand);
+
+        String expectedName = TaschenProductPage.productPageTascheInfo.get("Tasche Name");
+        String actualName = cartPage.productNameInCart.getText();
+        Assert.assertTrue("Verify Name", expectedName.contains(actualName));
+
+        String expectedType = TaschenProductPage.productPageTascheInfo.get("Tasche Type");
+        String actualType = cartPage.productTypeInCart.getText();
+        Assert.assertEquals("Verify Type", expectedType,actualType);
+
+        String expectedPrice = TaschenPage.selectedTaschenInfo.get("Tasche Price");
+        String actualPrice = cartPage.productPriceInCart.getText();
+        Assert.assertEquals("Verify Price", expectedPrice,actualPrice);
 
 
     }
@@ -59,11 +62,14 @@ public class Scenario_3_StepDef {
         CartPage cartPage = new CartPage();
         cartPage.executeVoucherCode(voucherCode);
 
+
     }
 
     @Then("voucher should be properly applied")
     public void voucher_should_be_properly_applied() {
-        System.out.println("EVERYTHING CLEAR????");
+       CartPage cartPage = new CartPage();
+       cartPage.voucherCheck();
+
     }
 
 }
