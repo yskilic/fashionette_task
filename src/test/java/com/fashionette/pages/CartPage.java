@@ -65,20 +65,20 @@ public class CartPage extends HomePage{
         codeEntryBox.clear();
         codeEntryBox.sendKeys(vCode);
         codeExecuteBox.click();
+        BrowserUtils.waitFor(2);
     }
 
-    public void voucherCheck(){
+    public void voucherCheck() {
 
-        int firstValue = Integer.parseInt(firstSum.getText());
-        int voucherVal = Integer.parseInt(voucherValue.getText());
-        int finalValue = Integer.parseInt(finalSum.getText());
+        String firstVal = firstSum.getText();
+        String voucherVal = voucherValue.getText();
+        String finalVal = finalSum.getText();
 
-        if (firstValue>finalValue) {
-            System.out.println("Your Voucher Code is Valid and " + voucherVal + " Euro discount applied");
-        }else {
-            System.out.println("Your Voucher Code is NOT Valid. Try another code");
-        }
+        System.out.println("First Price : " + firstVal);
+        System.out.println("Voucher Code : " + voucherVal);
+        System.out.println("Final Price : " + finalVal );
     }
+
 }
 
 

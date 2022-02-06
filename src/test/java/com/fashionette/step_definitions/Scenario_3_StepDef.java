@@ -70,6 +70,8 @@ public class Scenario_3_StepDef {
        CartPage cartPage = new CartPage();
        cartPage.voucherCheck();
 
+       Assert.assertFalse("Verify Vouche", cartPage.finalSum.getText().equals(cartPage.firstSum.getText()));
+
     }
 
 }
