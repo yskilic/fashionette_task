@@ -27,3 +27,7 @@ will be executed taking the existing tag into account. If the existing tag is
 wanted to be overridden then 
 -Dcucumber.options=”--tags @tagName” should be added. 
 e.g. mvn verify “-Dcucumber.options=”--tags @scen1”
+-Test results can be monitored through the Cucumber Report. In order to see the report, 
+simply right click on the “overview-features.html” file under target>cucumber-html-reports folder 
+and choose “open in browser”
+
