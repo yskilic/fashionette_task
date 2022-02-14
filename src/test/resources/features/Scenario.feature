@@ -2,12 +2,13 @@ Feature: Candidate Test
 
   Background:
     Given the user should be on the home page
-@scen1 @all
+
+  @scen1 @all
   Scenario Outline: User add a product to the cart and login
     When the user navigates to "<Main Category>" page
     And the user can select category as a "<Sub Category>"
     And the user can select one product in current category as "<Product Name>"
-    And the user can select product specifications as size "<Size>" and color "<Color>"
+    And the user can select product specifications as size "<Size>"
     And the user add can a product to the cart
     And the user navigates login page
     And the user should be able to login with valid credentials
@@ -15,10 +16,10 @@ Feature: Candidate Test
     Then the added_product should be correctly on page
 
     Examples:
-      | Main Category | Sub Category | Product Name      | Size | Color             |
-      | SCHUHE        | SNEAKERS     | ALEXANDER MCQUEEN | 38   | White/Powder Blue |
+      | Main Category | Sub Category | Product Name | Size |
+      | SCHUHE        | SNEAKERS     | BALENCIAGA   | 40   |
 
-@scen2 @all
+  @scen2 @all
   Scenario Outline: User modify user information
     When the user navigates login page
     And the user should be able to login with valid credentials
@@ -29,7 +30,7 @@ Feature: Candidate Test
       | First Name | Last Name |
       | John       | Smith     |
 
-@scen3 @all
+  @scen3 @all
   Scenario Outline: User apply voucher
     When the user navigates to "<Main Category>" page
     And the user can select one product as "<Product Brand>"

@@ -58,11 +58,11 @@ public class Scenario_1_StepDef {
 
     }
 
-    @When("the user can select product specifications as size {string} and color {string}")
-    public void the_user_can_select_product_specifications_as_size_and_color(String selectSize, String selectColor) {
+    @When("the user can select product specifications as size {string}")
+    public void the_user_can_select_product_specifications_as_size_and_color(String selectSize) {
 
         SchuheProductPage schuheProductPage = new SchuheProductPage();
-        schuheProductPage.chooseDetailsProduct(selectSize, selectColor);
+        schuheProductPage.chooseDetailsProduct(selectSize);
 
         Assert.assertEquals("Verify Name", SchuheCategoryPage.selectedProductInfo.get("Schuhe Name"), schuheProductPage.getProductPageInfo().get("Schuhe Name"));
         Assert.assertEquals("Verify Price", SchuheCategoryPage.selectedProductInfo.get("Schuhe Price"), schuheProductPage.getProductPageInfo().get("Schuhe Price"));
@@ -127,10 +127,6 @@ public class Scenario_1_StepDef {
         String expectedType = schuheProductPage.getProductPageInfo().get("Product Type");
         String actualType = cartPage.getProductInCart().get("Product Type");
         Assert.assertTrue("Verify Type", expectedType.equalsIgnoreCase(actualType));
-
-        String expectedColor = schuheProductPage.getProductPageInfo().get("Color");
-        String actualColor = cartPage.getProductInCart().get("Product Name");
-        Assert.assertTrue("Verify Color", expectedColor.equalsIgnoreCase(actualColor));
 
         String expectedSize = schuheProductPage.getProductPageInfo().get("Size");
         String actualSize = cartPage.getProductInCart().get("Size");

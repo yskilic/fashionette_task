@@ -47,7 +47,7 @@ public class SchuheProductPage extends SchuheCategoryPage{
         return productPageInfo;
     }
 
-    public void chooseDetailsProduct(String size, String color){
+    public void chooseDetailsProduct(String size){
 
         productPageInfo.put("Schuhe Name", productPageSchuheName.getText());
         productPageInfo.put("Product Name", productPageProductName.getText());
@@ -56,9 +56,8 @@ public class SchuheProductPage extends SchuheCategoryPage{
 
         for (int i = 0; i < productColor.size(); i++) {
             String colorLink = productColor.get(i).getAttribute("title").toString();
-            if (colorLink.contains(color)){
+            if (colorLink.contains(size)){
                 productColor.get(i).click();
-                productPageInfo.put("Color" , colorLink);
 
             }
         }
